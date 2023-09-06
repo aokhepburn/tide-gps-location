@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		36EDD2892AA7B15F0075F209 /* Tidal_GPS_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */; };
+		36EDD28B2AA7B15F0075F209 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD28A2AA7B15F0075F209 /* ContentView.swift */; };
+		36EDD28D2AA7B1600075F209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EDD28C2AA7B1600075F209 /* Assets.xcassets */; };
+		36EDD2902AA7B1600075F209 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EDD28F2AA7B1600075F209 /* Preview Assets.xcassets */; };
+		36EDD29A2AA7B1610075F209 /* Tidal_GPS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD2992AA7B1610075F209 /* Tidal_GPS_AppTests.swift */; };
+		36EDD2A42AA7B1610075F209 /* Tidal_GPS_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD2A32AA7B1610075F209 /* Tidal_GPS_AppUITests.swift */; };
+		36EDD2A62AA7B1610075F209 /* Tidal_GPS_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD2A52AA7B1610075F209 /* Tidal_GPS_AppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36EDD2962AA7B1610075F209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36EDD27D2AA7B15F0075F209 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36EDD2842AA7B15F0075F209;
+			remoteInfo = "Tidal GPS App";
+		};
+		36EDD2A02AA7B1610075F209 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36EDD27D2AA7B15F0075F209 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36EDD2842AA7B15F0075F209;
+			remoteInfo = "Tidal GPS App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		36EDD2852AA7B15F0075F209 /* Tidal GPS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tidal GPS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tidal_GPS_AppApp.swift; sourceTree = "<group>"; };
+		36EDD28A2AA7B15F0075F209 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		36EDD28C2AA7B1600075F209 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		36EDD28F2AA7B1600075F209 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		36EDD2952AA7B1610075F209 /* Tidal GPS AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tidal GPS AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36EDD2992AA7B1610075F209 /* Tidal_GPS_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tidal_GPS_AppTests.swift; sourceTree = "<group>"; };
+		36EDD29F2AA7B1610075F209 /* Tidal GPS AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tidal GPS AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36EDD2A32AA7B1610075F209 /* Tidal_GPS_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tidal_GPS_AppUITests.swift; sourceTree = "<group>"; };
+		36EDD2A52AA7B1610075F209 /* Tidal_GPS_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tidal_GPS_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36EDD2822AA7B15F0075F209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36EDD2922AA7B1610075F209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36EDD29C2AA7B1610075F209 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		36EDD27C2AA7B15F0075F209 = {
+			isa = PBXGroup;
+			children = (
+				36EDD2872AA7B15F0075F209 /* Tidal GPS App */,
+				36EDD2982AA7B1610075F209 /* Tidal GPS AppTests */,
+				36EDD2A22AA7B1610075F209 /* Tidal GPS AppUITests */,
+				36EDD2862AA7B15F0075F209 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		36EDD2862AA7B15F0075F209 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				36EDD2852AA7B15F0075F209 /* Tidal GPS App.app */,
+				36EDD2952AA7B1610075F209 /* Tidal GPS AppTests.xctest */,
+				36EDD29F2AA7B1610075F209 /* Tidal GPS AppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		36EDD2872AA7B15F0075F209 /* Tidal GPS App */ = {
+			isa = PBXGroup;
+			children = (
+				36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */,
+				36EDD28A2AA7B15F0075F209 /* ContentView.swift */,
+				36EDD28C2AA7B1600075F209 /* Assets.xcassets */,
+				36EDD28E2AA7B1600075F209 /* Preview Content */,
+			);
+			path = "Tidal GPS App";
+			sourceTree = "<group>";
+		};
+		36EDD28E2AA7B1600075F209 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				36EDD28F2AA7B1600075F209 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		36EDD2982AA7B1610075F209 /* Tidal GPS AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				36EDD2992AA7B1610075F209 /* Tidal_GPS_AppTests.swift */,
+			);
+			path = "Tidal GPS AppTests";
+			sourceTree = "<group>";
+		};
+		36EDD2A22AA7B1610075F209 /* Tidal GPS AppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				36EDD2A32AA7B1610075F209 /* Tidal_GPS_AppUITests.swift */,
+				36EDD2A52AA7B1610075F209 /* Tidal_GPS_AppUITestsLaunchTests.swift */,
+			);
+			path = "Tidal GPS AppUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		36EDD2842AA7B15F0075F209 /* Tidal GPS App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36EDD2A92AA7B1610075F209 /* Build configuration list for PBXNativeTarget "Tidal GPS App" */;
+			buildPhases = (
+				36EDD2812AA7B15F0075F209 /* Sources */,
+				36EDD2822AA7B15F0075F209 /* Frameworks */,
+				36EDD2832AA7B15F0075F209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tidal GPS App";
+			productName = "Tidal GPS App";
+			productReference = 36EDD2852AA7B15F0075F209 /* Tidal GPS App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		36EDD2942AA7B1610075F209 /* Tidal GPS AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36EDD2AC2AA7B1610075F209 /* Build configuration list for PBXNativeTarget "Tidal GPS AppTests" */;
+			buildPhases = (
+				36EDD2912AA7B1610075F209 /* Sources */,
+				36EDD2922AA7B1610075F209 /* Frameworks */,
+				36EDD2932AA7B1610075F209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36EDD2972AA7B1610075F209 /* PBXTargetDependency */,
+			);
+			name = "Tidal GPS AppTests";
+			productName = "Tidal GPS AppTests";
+			productReference = 36EDD2952AA7B1610075F209 /* Tidal GPS AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		36EDD29E2AA7B1610075F209 /* Tidal GPS AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36EDD2AF2AA7B1610075F209 /* Build configuration list for PBXNativeTarget "Tidal GPS AppUITests" */;
+			buildPhases = (
+				36EDD29B2AA7B1610075F209 /* Sources */,
+				36EDD29C2AA7B1610075F209 /* Frameworks */,
+				36EDD29D2AA7B1610075F209 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36EDD2A12AA7B1610075F209 /* PBXTargetDependency */,
+			);
+			name = "Tidal GPS AppUITests";
+			productName = "Tidal GPS AppUITests";
+			productReference = 36EDD29F2AA7B1610075F209 /* Tidal GPS AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36EDD27D2AA7B15F0075F209 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					36EDD2842AA7B15F0075F209 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					36EDD2942AA7B1610075F209 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 36EDD2842AA7B15F0075F209;
+					};
+					36EDD29E2AA7B1610075F209 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 36EDD2842AA7B15F0075F209;
+					};
+				};
+			};
+			buildConfigurationList = 36EDD2802AA7B15F0075F209 /* Build configuration list for PBXProject "Tidal GPS App" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36EDD27C2AA7B15F0075F209;
+			productRefGroup = 36EDD2862AA7B15F0075F209 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				36EDD2842AA7B15F0075F209 /* Tidal GPS App */,
+				36EDD2942AA7B1610075F209 /* Tidal GPS AppTests */,
+				36EDD29E2AA7B1610075F209 /* Tidal GPS AppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		36EDD2832AA7B15F0075F209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36EDD2902AA7B1600075F209 /* Preview Assets.xcassets in Resources */,
+				36EDD28D2AA7B1600075F209 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36EDD2932AA7B1610075F209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36EDD29D2AA7B1610075F209 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36EDD2812AA7B15F0075F209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36EDD28B2AA7B15F0075F209 /* ContentView.swift in Sources */,
+				36EDD2892AA7B15F0075F209 /* Tidal_GPS_AppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36EDD2912AA7B1610075F209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36EDD29A2AA7B1610075F209 /* Tidal_GPS_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36EDD29B2AA7B1610075F209 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36EDD2A62AA7B1610075F209 /* Tidal_GPS_AppUITestsLaunchTests.swift in Sources */,
+				36EDD2A42AA7B1610075F209 /* Tidal_GPS_AppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36EDD2972AA7B1610075F209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36EDD2842AA7B15F0075F209 /* Tidal GPS App */;
+			targetProxy = 36EDD2962AA7B1610075F209 /* PBXContainerItemProxy */;
+		};
+		36EDD2A12AA7B1610075F209 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 36EDD2842AA7B15F0075F209 /* Tidal GPS App */;
+			targetProxy = 36EDD2A02AA7B1610075F209 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		36EDD2A72AA7B1610075F209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		36EDD2A82AA7B1610075F209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		36EDD2AA2AA7B1610075F209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tidal GPS App/Preview Content\"";
+				DEVELOPMENT_TEAM = 37P959BCPK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alice-Hepburn.Tidal-GPS-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		36EDD2AB2AA7B1610075F209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tidal GPS App/Preview Content\"";
+				DEVELOPMENT_TEAM = 37P959BCPK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alice-Hepburn.Tidal-GPS-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		36EDD2AD2AA7B1610075F209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37P959BCPK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alice-Hepburn.Tidal-GPS-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tidal GPS App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tidal GPS App";
+			};
+			name = Debug;
+		};
+		36EDD2AE2AA7B1610075F209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37P959BCPK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alice-Hepburn.Tidal-GPS-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tidal GPS App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Tidal GPS App";
+			};
+			name = Release;
+		};
+		36EDD2B02AA7B1610075F209 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37P959BCPK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alice-Hepburn.Tidal-GPS-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Tidal GPS App";
+			};
+			name = Debug;
+		};
+		36EDD2B12AA7B1610075F209 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37P959BCPK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Alice-Hepburn.Tidal-GPS-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Tidal GPS App";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36EDD2802AA7B15F0075F209 /* Build configuration list for PBXProject "Tidal GPS App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36EDD2A72AA7B1610075F209 /* Debug */,
+				36EDD2A82AA7B1610075F209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36EDD2A92AA7B1610075F209 /* Build configuration list for PBXNativeTarget "Tidal GPS App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36EDD2AA2AA7B1610075F209 /* Debug */,
+				36EDD2AB2AA7B1610075F209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36EDD2AC2AA7B1610075F209 /* Build configuration list for PBXNativeTarget "Tidal GPS AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36EDD2AD2AA7B1610075F209 /* Debug */,
+				36EDD2AE2AA7B1610075F209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36EDD2AF2AA7B1610075F209 /* Build configuration list for PBXNativeTarget "Tidal GPS AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36EDD2B02AA7B1610075F209 /* Debug */,
+				36EDD2B12AA7B1610075F209 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36EDD27D2AA7B15F0075F209 /* Project object */;
+}
