@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		366283E52AAA1860004ADB23 /* Location_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366283E42AAA1860004ADB23 /* Location_Manager.swift */; };
+		366283E72AAA2733004ADB23 /* LocationManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366283E62AAA2733004ADB23 /* LocationManagerModel.swift */; };
 		36EDD2892AA7B15F0075F209 /* Tidal_GPS_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */; };
 		36EDD28B2AA7B15F0075F209 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD28A2AA7B15F0075F209 /* ContentView.swift */; };
 		36EDD28D2AA7B1600075F209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EDD28C2AA7B1600075F209 /* Assets.xcassets */; };
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		366283E42AAA1860004ADB23 /* Location_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location_Manager.swift; sourceTree = "<group>"; };
+		366283E62AAA2733004ADB23 /* LocationManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerModel.swift; sourceTree = "<group>"; };
 		36EDD2852AA7B15F0075F209 /* Tidal GPS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tidal GPS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tidal_GPS_AppApp.swift; sourceTree = "<group>"; };
 		36EDD28A2AA7B15F0075F209 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 				36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */,
 				36EDD28A2AA7B15F0075F209 /* ContentView.swift */,
 				36EDD28C2AA7B1600075F209 /* Assets.xcassets */,
+				366283E62AAA2733004ADB23 /* LocationManagerModel.swift */,
 				36EDD28E2AA7B1600075F209 /* Preview Content */,
-				366283E42AAA1860004ADB23 /* Location_Manager.swift */,
 			);
 			path = "Tidal GPS App";
 			sourceTree = "<group>";
@@ -260,8 +260,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				366283E52AAA1860004ADB23 /* Location_Manager.swift in Sources */,
 				36EDD28B2AA7B15F0075F209 /* ContentView.swift in Sources */,
+				366283E72AAA2733004ADB23 /* LocationManagerModel.swift in Sources */,
 				36EDD2892AA7B15F0075F209 /* Tidal_GPS_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
