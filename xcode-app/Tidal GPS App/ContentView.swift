@@ -24,7 +24,8 @@ extension ContentView {
             Item(name: "Hello"),
             Item(name: "World"),
             Item(name: "Whey Hey"),
-            Item(name: "We are working now!")
+            Item(name: "We are working now!"),
+            Item(name: "See Daniel")
         ]
         func select(_: ContentView.Item) {
             // implement
