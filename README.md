@@ -1,8 +1,11 @@
-<p align="center"><a href="https://github.com/apple/swift"><img src="
-https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white"></a>   <a href=""><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white"></a>    <a href="x-code"><img src="https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white"></a></p>
+<p align="center">
+  <a href="https://github.com/apple/swift"><img src="https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white"></a>   
+  <a href=""><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white"></a>    
+  <a href="x-code"><img src="https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white"></a>
+</p>
 
 <h1 align="center">GPS TIDAL INFORMATION FOR NY HARBOR</h1>
-<h3 align="center">A demonstration of a full-stack application for mobile devices that can use GPS data to provide up to date NOAA information.</h3>
+<h3 align="center">A demonstration of a full-stack mobile application for mobile devices that can use GPS data to provide up to date NOAA information.</h3>
 
 ## Description
 
