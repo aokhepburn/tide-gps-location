@@ -85,6 +85,8 @@ struct TrackingView: View {
                     leftText: "Longitude:",
                     rightText: String(coordinate?.longitude ?? 0)
                 )
+                Text(Date(), style: .date)
+                Text(Date(), style: .time)// "January 14, 2021"
             }
             .padding()
         }
