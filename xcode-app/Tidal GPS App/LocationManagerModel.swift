@@ -13,6 +13,7 @@ class LocationManagerModel: NSObject, ObservableObject, CLLocationManagerDelegat
     @Published var lastSeenLocation: CLLocation?
     @Published var currentPlacemark: CLLocation?
     
+    
     private let locationManager: CLLocationManager
     
     override init() {
