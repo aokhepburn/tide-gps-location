@@ -73,6 +73,7 @@ struct RequestLocationView: View{
 //This function will have to be transformed to set the coordinates as varibles that can be used as inputs
 struct TrackingView: View {
     @EnvironmentObject var locationManagerModel: LocationManagerModel
+    //@StateObject var dateAndTimeManagerModel = DateAndTimeManagerModel()
     
     var body: some View {
         VStack {
@@ -85,6 +86,8 @@ struct TrackingView: View {
                     leftText: "Longitude:",
                     rightText: String(coordinate?.longitude ?? 0)
                 )
+                Text(Date(), style: .date)
+                Text(Date(), style: .time)// "January 14, 2021"
             }
             .padding()
         }
