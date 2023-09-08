@@ -22,6 +22,7 @@ struct PairView: View {
     }
 }
 
+
 //ContentView is doing heavy lifting of checking permissions, first step.
 struct ContentView: View {
     @StateObject var locationManagerModel = LocationManagerModel()
@@ -73,6 +74,7 @@ struct RequestLocationView: View{
 //This function will have to be transformed to set the coordinates as varibles that can be used as inputs
 struct TrackingView: View {
     @EnvironmentObject var locationManagerModel: LocationManagerModel
+    @StateObject var dateTime = DateTimeManagerModel()
     
     var body: some View {
         VStack {
@@ -85,17 +87,23 @@ struct TrackingView: View {
                     leftText: "Longitude:",
                     rightText: String(coordinate?.longitude ?? 0)
                 )
-                Text(Date(), style: .date)
-                Text(Date(), style: .time)// "January 14, 2021"
+                PairView(
+                    leftText: "Time & Date:",
+                    rightText: String(dateTime.now!))
+                
+//                Text(dateTime.dateObject!, style: .date)
+//                Spacer()
+//                Text(dateTime.dateObject!, style: .time)// "January 14, 2021"
             }
-            .padding()
+            .padding(10)
         }
     }
+    
     
     var coordinate: CLLocationCoordinate2D? {
         locationManagerModel.lastSeenLocation?.coordinate
     }
-}
+                         }
 
 //extension ContentView {
 //    final class ViewModel: ObservableObject {
