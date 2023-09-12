@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		362F10892AB0C90A005575C7 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F10882AB0C90A005575C7 /* DatabaseModel.swift */; };
 		366283E72AAA2733004ADB23 /* LocationManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366283E62AAA2733004ADB23 /* LocationManagerModel.swift */; };
 		366283EE2AAA7637004ADB23 /* DateTimeManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366283ED2AAA7637004ADB23 /* DateTimeManagerModel.swift */; };
 		36EDD2892AA7B15F0075F209 /* Tidal_GPS_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		362F10882AB0C90A005575C7 /* DatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
 		366283E62AAA2733004ADB23 /* LocationManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerModel.swift; sourceTree = "<group>"; };
 		366283ED2AAA7637004ADB23 /* DateTimeManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeManagerModel.swift; sourceTree = "<group>"; };
 		36EDD2852AA7B15F0075F209 /* Tidal GPS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tidal GPS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 				36EDD28A2AA7B15F0075F209 /* ContentView.swift */,
 				36EDD28C2AA7B1600075F209 /* Assets.xcassets */,
 				366283E62AAA2733004ADB23 /* LocationManagerModel.swift */,
+				362F10882AB0C90A005575C7 /* DatabaseModel.swift */,
 				36EDD28E2AA7B1600075F209 /* Preview Content */,
 				366283ED2AAA7637004ADB23 /* DateTimeManagerModel.swift */,
 			);
@@ -263,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				362F10892AB0C90A005575C7 /* DatabaseModel.swift in Sources */,
 				36EDD28B2AA7B15F0075F209 /* ContentView.swift in Sources */,
 				366283E72AAA2733004ADB23 /* LocationManagerModel.swift in Sources */,
 				366283EE2AAA7637004ADB23 /* DateTimeManagerModel.swift in Sources */,
