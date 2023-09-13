@@ -75,10 +75,13 @@ struct RequestLocationView: View{
 struct TrackingView: View {
     @EnvironmentObject var locationManagerModel: LocationManagerModel
     @StateObject var dateTime = DateTimeManagerModel()
+    @State var tides = [TidalData]()
+    
+//    @State private var joke: String = ""
+
     
     var body: some View {
         VStack {
-            VStack {
                 PairView(
                     leftText: "Latitude:",
                     rightText: String(coordinate?.latitude ?? 0)
@@ -88,14 +91,39 @@ struct TrackingView: View {
                     rightText: String(coordinate?.longitude ?? 0)
                 )
                 PairView(
-                    leftText: "Time & Date:",
-                    rightText: String(dateTime.now!))
-                
-//                Text(dateTime.dateObject!, style: .date)
-//                Spacer()
-//                Text(dateTime.dateObject!, style: .time)// "January 14, 2021"
+                    leftText: "Date & Time (For Display:",
+                    rightText: String(dateTime.displayNow!))
+                PairView(
+                    leftText: "Date & Time (For Query:",
+                    rightText: String(dateTime.queryNow!))
+                .padding(10)
+            
+            List(tides) {tide in
+                VStack(alignment: .leading) {
+                    Text(tide.t)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Text(tide.v)
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                }
             }
-            .padding(10)
+                          Button {
+                              Task {apiCall().getKingsPointTides{ (tides) in self.tides = tides}}
+                          } label: {
+                              Text("Fetch Tide")
+                          }
+//        Text(joke)
+//                Button {
+//                    Task {
+//                        let (data, _) = try await URLSession.shared.data(from: URL(string:"https://api.chucknorris.io/jokes/random")!)
+//                        let decodedResponse = try? JSONDecoder().decode(Joke.self, from: data)
+//                        joke = decodedResponse?.value ?? ""
+//                    }
+//                } label: {
+//                    Text("Fetch Tide")
+//                }
+        
         }
     }
     
@@ -128,3 +156,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+//
+//struct Joke: Codable {
+//    let value: String
+//}

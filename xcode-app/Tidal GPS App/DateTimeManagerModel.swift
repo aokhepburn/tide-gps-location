@@ -8,53 +8,31 @@
 import Foundation
 
 class DateTimeManagerModel: NSObject, ObservableObject{
-//    var date: Date?
-//    var time: Date?
     @Published var dateObject: Date?
-    @Published var now: String?
+    @Published var displayNow: String?
+    @Published var queryNow: String?
     
-    private let dateFormatter = DateFormatter()
+    //formatting for viewing in app
+    private let displayDateFormatter = DateFormatter()
+    
+    //formatting to match the NOAA api to match the value and retrieve correct tide
+    private let queryDateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm"
+            return formatter
+        }()
+    
 
     override init() {
         super.init()
         self.dateObject = Date()
-        dateFormatter.timeStyle = .short
-        dateFormatter.dateStyle = .long
-        self.now = dateFormatter.string(from: self.dateObject!)
         
+        //formatting string for api call
+        self.queryNow = queryDateFormatter.string(from: self.dateObject!)
+        
+        //formatting string for display
+        displayDateFormatter.timeStyle = .short
+        displayDateFormatter.dateStyle = .long
+        self.displayNow = displayDateFormatter.string(from: self.dateObject!)
        }
-    
-//    func dateString(){
-//        var date = String(formatted(date: dateObject.DateStyle.short, time: dateObject.TimeStyle.short))
-//    }
-
-    
-     // You can specify the time format you want here
-
-    
-    
-//    init(
-//        calendar: Calendar? = nil,
-//        timeZone: TimeZone? = nil,
-//        era: Int? = nil,
-//        year: Int? = nil,
-//        month: Int? = nil,
-//        day: Int? = nil,
-//        hour: Int? = nil,
-//        minute: Int? = nil,
-//        second: Int? = nil,
-//        nanosecond: Int? = nil,
-//        weekday: Int? = nil,
-//        weekdayOrdinal: Int? = nil,
-//        quarter: Int? = nil,
-//        weekOfMonth: Int? = nil,
-//        weekOfYear: Int? = nil,
-//        yearForWeekOfYear: Int? = nil
-//    ){
-//        self.date = Date()
-//    }
-    
-//    convenience init?() {
-        // what happens now
-//    }
 }
