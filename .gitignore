@@ -94,5 +94,7 @@ iOSInjectionProject/
 
 #Google Services
 ./xcode-app/Tidal\ GPS\ App/GoogleService-Info.plist
+./xcode-app/Tidal GPS App/GoogleService-Info.plist
+./xcode-app/*/*.plist
 */GoogleService-Info.plist
 */.plist
