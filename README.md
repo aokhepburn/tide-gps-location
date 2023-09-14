@@ -1,7 +1,8 @@
 <p align="center">
   <a href="https://github.com/apple/swift"><img src="https://img.shields.io/badge/Swift-FA7343?style=for-the-badge&logo=swift&logoColor=white"></a>   
   <a href=""><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white"></a>    
-  <a href="x-code"><img src="https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white"></a>
+  <a href="https://developer.apple.com/xcode/resources/"><img src="https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white"></a>
+  <a href="https://github.com/firebase/firebase-ios-sdk"><img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black"></a>
 </p>
 
 <h1 align="center">GPS TIDAL INFORMATION FOR NY HARBOR</h1>
@@ -10,3 +11,11 @@
 ## Description
 
 An app to get up to date tidal information in New York Harbor based off of a phone's GPS data. Given the complexity of New York's rivers and it's many currents this app attempts to pin point a user's location and give accurate information for the current tidal situation and surface currents that may affect navigation.
+
+## Languages and SDKs
+
+- SwiftUI
+  - CoreLocation
+  - Firebase Realtime DB
+  - SwiftCharts
+  - MapKit
