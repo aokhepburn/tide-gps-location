@@ -8,6 +8,8 @@
 import SwiftUI
 
 import FirebaseCore
+import FirebaseFirestore
+import FirebaseDatabaseSwift
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -32,5 +34,11 @@ struct Tidal_GPS_AppApp: App {
         WindowGroup {
             ContentView()
         }
+        
+//        var ref: DatabaseReference!
+//
+//        ref = Database.database("https://tide-gps-data-app-default-rtdb.firebaseio.com").reference()
+
     }
 }
+

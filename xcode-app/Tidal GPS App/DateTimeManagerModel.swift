@@ -11,6 +11,9 @@ class DateTimeManagerModel: NSObject, ObservableObject{
     @Published var dateObject: Date?
     @Published var displayNow: String?
     @Published var queryNow: String?
+    @Published var halfHourIntervalObject: Date?
+    @Published var queryHour: String?
+    @Published var queryForOneEntry: String?
     
     //formatting for viewing in app
     private let displayDateFormatter = DateFormatter()
@@ -24,11 +27,14 @@ class DateTimeManagerModel: NSObject, ObservableObject{
     
 
     override init() {
-        super.init()
         self.dateObject = Date()
+        self.halfHourIntervalObject = Date(timeIntervalSinceNow:1800)
         
+        super.init()
         //formatting string for api call
         self.queryNow = queryDateFormatter.string(from: self.dateObject!)
+        
+        self.queryHour = queryDateFormatter.string(from: self.halfHourIntervalObject!)
         
         //formatting string for display
         displayDateFormatter.timeStyle = .short

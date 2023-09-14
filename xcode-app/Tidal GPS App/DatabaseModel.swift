@@ -14,15 +14,4 @@ struct TidalData: Codable, Identifiable{
     let v: String
 }
 
-//
-//extension Encodable{
-//    var toDictionary: [String: Any]?{
-//        guard let data = try? JSONEncoder().encode(self) else{
-//            return nil
-//        }
-//        return try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
-//    }
-//}
-//
-//
-////t = time of prediction, v = Tidal height, h/l tide prediction,
+//t = time of prediction, v = Tidal height, h/l tide prediction,

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		362F10892AB0C90A005575C7 /* DatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F10882AB0C90A005575C7 /* DatabaseModel.swift */; };
-		362F108B2AB0E46C005575C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 362F108A2AB0E46C005575C7 /* GoogleService-Info.plist */; };
 		362F108E2AB0E4AC005575C7 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 362F108D2AB0E4AC005575C7 /* FirebaseAnalyticsSwift */; };
 		362F10902AB0E4AC005575C7 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 362F108F2AB0E4AC005575C7 /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		362F10922AB0E4AC005575C7 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 362F10912AB0E4AC005575C7 /* FirebaseCrashlytics */; };
@@ -22,6 +21,8 @@
 		362F10A22AB0E4AC005575C7 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 362F10A12AB0E4AC005575C7 /* FirebaseStorage */; };
 		362F10A42AB0E4AD005575C7 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 362F10A32AB0E4AD005575C7 /* FirebaseStorageCombine-Community */; };
 		362F10A62AB0E72B005575C7 /* DatabaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F10A52AB0E72B005575C7 /* DatabaseViewModel.swift */; };
+		362F10CF2AB35473005575C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 362F10CE2AB35473005575C7 /* GoogleService-Info.plist */; };
+		362F10D12AB35653005575C7 /* FirebaseQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362F10D02AB35653005575C7 /* FirebaseQueryModel.swift */; };
 		366283E72AAA2733004ADB23 /* LocationManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366283E62AAA2733004ADB23 /* LocationManagerModel.swift */; };
 		366283EE2AAA7637004ADB23 /* DateTimeManagerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366283ED2AAA7637004ADB23 /* DateTimeManagerModel.swift */; };
 		36EDD2892AA7B15F0075F209 /* Tidal_GPS_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */; };
@@ -52,8 +53,9 @@
 
 /* Begin PBXFileReference section */
 		362F10882AB0C90A005575C7 /* DatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseModel.swift; sourceTree = "<group>"; };
-		362F108A2AB0E46C005575C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		362F10A52AB0E72B005575C7 /* DatabaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseViewModel.swift; sourceTree = "<group>"; };
+		362F10CE2AB35473005575C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		362F10D02AB35653005575C7 /* FirebaseQueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseQueryModel.swift; sourceTree = "<group>"; };
 		366283E62AAA2733004ADB23 /* LocationManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerModel.swift; sourceTree = "<group>"; };
 		366283ED2AAA7637004ADB23 /* DateTimeManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeManagerModel.swift; sourceTree = "<group>"; };
 		36EDD2852AA7B15F0075F209 /* Tidal GPS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tidal GPS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,7 +138,8 @@
 				362F10882AB0C90A005575C7 /* DatabaseModel.swift */,
 				36EDD28E2AA7B1600075F209 /* Preview Content */,
 				366283ED2AAA7637004ADB23 /* DateTimeManagerModel.swift */,
-				362F108A2AB0E46C005575C7 /* GoogleService-Info.plist */,
+				362F10CE2AB35473005575C7 /* GoogleService-Info.plist */,
+				362F10D02AB35653005575C7 /* FirebaseQueryModel.swift */,
 			);
 			path = "Tidal GPS App";
 			sourceTree = "<group>";
@@ -289,7 +292,7 @@
 			files = (
 				36EDD2902AA7B1600075F209 /* Preview Assets.xcassets in Resources */,
 				36EDD28D2AA7B1600075F209 /* Assets.xcassets in Resources */,
-				362F108B2AB0E46C005575C7 /* GoogleService-Info.plist in Resources */,
+				362F10CF2AB35473005575C7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +319,7 @@
 			files = (
 				362F10892AB0C90A005575C7 /* DatabaseModel.swift in Sources */,
 				36EDD28B2AA7B15F0075F209 /* ContentView.swift in Sources */,
+				362F10D12AB35653005575C7 /* FirebaseQueryModel.swift in Sources */,
 				366283E72AAA2733004ADB23 /* LocationManagerModel.swift in Sources */,
 				362F10A62AB0E72B005575C7 /* DatabaseViewModel.swift in Sources */,
 				366283EE2AAA7637004ADB23 /* DateTimeManagerModel.swift in Sources */,
