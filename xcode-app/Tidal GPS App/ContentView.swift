@@ -126,7 +126,17 @@ struct TrackingView: View {
             }
                 Button {
                     Task {
-                        viewModel.listentoRealtimeDatabase()
+                        if Float(coordinate?.latitude ?? 0) < 40.6526 && Float(coordinate?.latitude ?? 0) > 40.5949 && Float(coordinate?.longitude ?? 0) > -74.2035 && Float(coordinate?.longitude ?? 0) < -74.1088 {
+                            viewModel.harmonicStationString = "west-bergen"
+                            viewModel.listentoRealtimeDatabase()
+                        } else if Float(coordinate?.latitude ?? 0) < 40.9607 && Float(coordinate?.latitude ?? 0) > 40.7544 && Float(coordinate?.longitude ?? 0) > -73.9092 && Float(coordinate?.longitude ?? 0) < -73.6116 {
+                            viewModel.harmonicStationString = "kings-point"
+                            viewModel.listentoRealtimeDatabase()
+                        } else if Float(coordinate?.latitude ?? 0) < 40.8511 && Float(coordinate?.latitude ?? 0) > 40.6009 && Float(coordinate?.longitude ?? 0) > -74.1088 && Float(coordinate?.longitude ?? 0) < -73.9092 {
+                            viewModel.harmonicStationString = "the-battery"
+                            viewModel.listentoRealtimeDatabase()
+                        }
+                        
                     }
                 } label: {
                     Text("Fetch Tide")

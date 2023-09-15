@@ -25,12 +25,12 @@ class FirebaseQueryModel: ObservableObject {
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
+    var harmonicStationString: String = "the-battery"
+    
     func listentoRealtimeDatabase() {
         guard let ref = ref else {
             return
         }
-        
-        var harmonicStationString: String = "the-battery"
         
         let databaseQuery: DatabaseQuery = ref.child(harmonicStationString).queryOrdered(byChild: "t").queryStarting(atValue: DateTimeManagerModel().queryNow).queryEnding(atValue: DateTimeManagerModel().queryHour)
         
