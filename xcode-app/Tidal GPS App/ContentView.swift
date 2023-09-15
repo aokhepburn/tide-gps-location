@@ -23,7 +23,6 @@ struct PairView: View {
     }
 }
 
-
 //ContentView is doing heavy lifting of checking permissions, first step.
 struct ContentView: View {
     @StateObject var locationManagerModel = LocationManagerModel()
@@ -45,6 +44,7 @@ struct ContentView: View {
     }
 }
 
+//landing page where we ask for permissions
 struct RequestLocationView: View{
     @EnvironmentObject var locationManagerModel: LocationManagerModel
     
@@ -72,19 +72,31 @@ struct RequestLocationView: View{
     }
 }
 
-//This function will have to be transformed to set the coordinates as varibles that can be used as inputs
+//Main view page with map and printed coordinate & tide information
 struct TrackingView: View {
     @EnvironmentObject var locationManagerModel: LocationManagerModel
     @StateObject var dateTime = DateTimeManagerModel()
-//    @State var tides = [TidalData]()
     @StateObject private var viewModel = FirebaseQueryModel()
     var coordinate: CLLocationCoordinate2D? {
         locationManagerModel.lastSeenLocation?.coordinate
     }
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 0.5))
+    
+    let annotations = [
+        City(name: "King's Point", coordinate: CLLocationCoordinate2D(latitude: 40.810299, longitude: -73.764900)),
+        City(name: "The Battery", coordinate: CLLocationCoordinate2D(latitude: 40.700556, longitude: -74.014167)),
+        City(name: "Sandy Hook", coordinate: CLLocationCoordinate2D(latitude: 40.4583315, longitude: -74.00166666)),
+        City(name: "Bergen Point West Reach", coordinate: CLLocationCoordinate2D(latitude: 40.6391, longitude: -74.146306))
+    ]
+    
     var body: some View {
         VStack {
-                Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
+            Map(coordinateRegion: $region,
+                showsUserLocation: true,
+                userTrackingMode: .constant(.follow),
+                annotationItems: annotations) {
+                        MapMarker(coordinate: $0.coordinate)
+                    }
                         .frame(width: 400, height: 300)
                 
                 PairView(
@@ -110,9 +122,6 @@ struct TrackingView: View {
                         leftText: "height from Mean Lower Low Water",
                         rightText: tide.v
                     )
-//                    Text("height from Mean Lower Low Water")
-//                        .font(.subheadline)
-//                        .fontWeight(.bold)
                 }
             }
                 Button {
@@ -122,40 +131,10 @@ struct TrackingView: View {
                 } label: {
                     Text("Fetch Tide")
                 }
-//
-//            //functioning apiCall rendering
-//                          Button {
-//                              Task {apiCall().getKingsPointTides{ (tides) in self.tides = tides}}
-//                          } label: {
-//                              Text("Fetch Tide")
-//                          }
-        
         }
     }
-    
-//    var coordinate: CLLocationCoordinate2D? {
-//        locationManagerModel.lastSeenLocation?.coordinate
-//    }
-                         }
+}
 
-//extension ContentView {
-//    final class ViewModel: ObservableObject {
-//        let items: [Item] = [
-//            Item(name: "Hello"),
-//            Item(name: "World"),
-//            Item(name: "Whey Hey"),
-//            Item(name: "We are working now!"),
-//            Item(name: "See Daniel")
-//        ]
-//        func select(_: ContentView.Item) {
-//            // implement
-//        }
-//    }
-//    struct Item: Identifiable {
-//        let name: String
-//        var id: String { name }
-//    }
-//}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

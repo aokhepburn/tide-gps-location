@@ -7,20 +7,21 @@
 
 import Foundation
 import FirebaseDatabase
+import CoreLocation
 
 //this tides is returning as an array!!!!!! FirebaseQueryModel().tides will return an array!
 
 class FirebaseQueryModel: ObservableObject {
     @Published var tides: [TidalData] = []
+
+    let ref: DatabaseReference? = Database.database().reference()
     
-    private let ref: DatabaseReference? = Database.database().reference().child("predictions")
     //        return nowTides
 //    private lazy var databasePath: DatabaseQuery? = {
 //        let ref = Database.database().reference().child("kingspoint-921-924-predictions")
 //        let nowTides = ref.queryOrdered(byChild: "t").queryEqual(toValue: "2023-09-21 00")
 //        return nowTides
 //    }()
-    
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
@@ -29,7 +30,9 @@ class FirebaseQueryModel: ObservableObject {
             return
         }
         
-        let databaseQuery: DatabaseQuery = ref.queryOrdered(byChild: "t").queryStarting(atValue: DateTimeManagerModel().queryNow).queryEnding(atValue: DateTimeManagerModel().queryHour)
+        var harmonicStationString: String = "the-battery"
+        
+        let databaseQuery: DatabaseQuery = ref.child(harmonicStationString).queryOrdered(byChild: "t").queryStarting(atValue: DateTimeManagerModel().queryNow).queryEnding(atValue: DateTimeManagerModel().queryHour)
         
 //        let databaseQuery: DatabaseQuery = ref.queryOrdered(byChild: "t").queryEqual(toValue:DateTimeManagerModel().queryNow)
 

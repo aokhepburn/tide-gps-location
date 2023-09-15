@@ -35,10 +35,6 @@ struct Tidal_GPS_AppApp: App {
             ContentView()
         }
         
-//        var ref: DatabaseReference!
-//
-//        ref = Database.database("https://tide-gps-data-app-default-rtdb.firebaseio.com").reference()
-
     }
 }
 
