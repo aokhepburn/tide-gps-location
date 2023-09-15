@@ -58,6 +58,8 @@
 		362F10D02AB35653005575C7 /* FirebaseQueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseQueryModel.swift; sourceTree = "<group>"; };
 		366283E62AAA2733004ADB23 /* LocationManagerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerModel.swift; sourceTree = "<group>"; };
 		366283ED2AAA7637004ADB23 /* DateTimeManagerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeManagerModel.swift; sourceTree = "<group>"; };
+		36E391B62AB496F400730369 /* new.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = new.gpx; sourceTree = "<group>"; };
+		36E391B72AB497DA00730369 /* Tidal GPS App.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = "Tidal GPS App.xctestplan"; path = "Tidal GPS AppTests/Tidal GPS App.xctestplan"; sourceTree = "<group>"; };
 		36EDD2852AA7B15F0075F209 /* Tidal GPS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tidal GPS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tidal_GPS_AppApp.swift; sourceTree = "<group>"; };
 		36EDD28A2AA7B15F0075F209 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,8 @@
 		36EDD27C2AA7B15F0075F209 = {
 			isa = PBXGroup;
 			children = (
+				36E391B72AB497DA00730369 /* Tidal GPS App.xctestplan */,
+				36E391B62AB496F400730369 /* new.gpx */,
 				36EDD2872AA7B15F0075F209 /* Tidal GPS App */,
 				36EDD2982AA7B1610075F209 /* Tidal GPS AppTests */,
 				36EDD2A22AA7B1610075F209 /* Tidal GPS AppUITests */,

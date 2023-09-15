@@ -1,0 +1,41 @@
+{
+  "configurations" : [
+    {
+      "id" : "E925F45B-544C-4CC8-BB69-CF167A86A0F2",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "locationScenario" : {
+      "identifier" : "..\/..\/new.gpx"
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Tidal GPS App.xcodeproj",
+      "identifier" : "36EDD2842AA7B15F0075F209",
+      "name" : "Tidal GPS App"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Tidal GPS App.xcodeproj",
+        "identifier" : "36EDD2942AA7B1610075F209",
+        "name" : "Tidal GPS AppTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Tidal GPS App.xcodeproj",
+        "identifier" : "36EDD29E2AA7B1610075F209",
+        "name" : "Tidal GPS AppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 import CoreLocationUI
+import MapKit
 
 struct PairView: View {
     let leftText: String
@@ -77,10 +78,15 @@ struct TrackingView: View {
     @StateObject var dateTime = DateTimeManagerModel()
 //    @State var tides = [TidalData]()
     @StateObject private var viewModel = FirebaseQueryModel()
-    
-    
+    var coordinate: CLLocationCoordinate2D? {
+        locationManagerModel.lastSeenLocation?.coordinate
+    }
+    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     var body: some View {
         VStack {
+                Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
+                        .frame(width: 400, height: 300)
+                
                 PairView(
                     leftText: "Latitude:",
                     rightText: String(coordinate?.latitude ?? 0)
@@ -127,10 +133,9 @@ struct TrackingView: View {
         }
     }
     
-    
-    var coordinate: CLLocationCoordinate2D? {
-        locationManagerModel.lastSeenLocation?.coordinate
-    }
+//    var coordinate: CLLocationCoordinate2D? {
+//        locationManagerModel.lastSeenLocation?.coordinate
+//    }
                          }
 
 //extension ContentView {
