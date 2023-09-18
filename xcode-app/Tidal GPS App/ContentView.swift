@@ -76,7 +76,7 @@ struct RequestLocationView: View{
 struct TrackingView: View {
     @EnvironmentObject var locationManagerModel: LocationManagerModel
     @StateObject var dateTime = DateTimeManagerModel()
-    @StateObject private var viewModel = FirebaseQueryModel()
+    @StateObject private var firebaseQueryModel = FirebaseQueryModel()
     var coordinate: CLLocationCoordinate2D? {
         locationManagerModel.lastSeenLocation?.coordinate
     }
@@ -113,7 +113,7 @@ struct TrackingView: View {
                 .padding(10)
             
             
-            List(viewModel.tides) {tide in
+            List(firebaseQueryModel.tidesForDisplay) {tide in
                 VStack(alignment: .leading) {
                     Text(tide.t)
                         .font(.title)
@@ -127,14 +127,14 @@ struct TrackingView: View {
                 Button {
                     Task {
                         if Float(coordinate?.latitude ?? 0) < 40.6526 && Float(coordinate?.latitude ?? 0) > 40.5949 && Float(coordinate?.longitude ?? 0) > -74.2035 && Float(coordinate?.longitude ?? 0) < -74.1088 {
-                            viewModel.harmonicStationString = "west-bergen"
-                            viewModel.listentoRealtimeDatabase()
+                            firebaseQueryModel.harmonicStationString = "west-bergen"
+                            firebaseQueryModel.retrieveTidesForDisplay()
                         } else if Float(coordinate?.latitude ?? 0) < 40.9607 && Float(coordinate?.latitude ?? 0) > 40.7544 && Float(coordinate?.longitude ?? 0) > -73.9092 && Float(coordinate?.longitude ?? 0) < -73.6116 {
-                            viewModel.harmonicStationString = "kings-point"
-                            viewModel.listentoRealtimeDatabase()
+                            firebaseQueryModel.harmonicStationString = "kings-point"
+                            firebaseQueryModel.retrieveTidesForDisplay()
                         } else if Float(coordinate?.latitude ?? 0) < 40.8511 && Float(coordinate?.latitude ?? 0) > 40.6009 && Float(coordinate?.longitude ?? 0) > -74.1088 && Float(coordinate?.longitude ?? 0) < -73.9092 {
-                            viewModel.harmonicStationString = "the-battery"
-                            viewModel.listentoRealtimeDatabase()
+                            firebaseQueryModel.harmonicStationString = "the-battery"
+                            firebaseQueryModel.retrieveTidesForDisplay()
                         }
                         
                     }

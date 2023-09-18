@@ -12,7 +12,7 @@ import CoreLocation
 //this tides is returning as an array!!!!!! FirebaseQueryModel().tides will return an array!
 
 class FirebaseQueryModel: ObservableObject {
-    @Published var tides: [TidalData] = []
+    @Published var tidesForDisplay: [TidalData] = []
 
     let ref: DatabaseReference? = Database.database().reference()
     
@@ -25,9 +25,9 @@ class FirebaseQueryModel: ObservableObject {
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
-    var harmonicStationString: String = "the-battery"
+    var harmonicStationString: String = ""
     
-    func listentoRealtimeDatabase() {
+    func retrieveTidesForDisplay() {
         guard let ref = ref else {
             return
         }
@@ -48,8 +48,8 @@ class FirebaseQueryModel: ObservableObject {
                 do {
                     let tideData = try JSONSerialization.data(withJSONObject: json)
                     let tide = try self.decoder.decode(TidalData.self, from: tideData)
-                    self.tides.append(tide)
-                    print(self.tides)
+                    self.tidesForDisplay.append(tide)
+                    print(self.tidesForDisplay)
                 } catch {
                     print("an error occurred", error)
                 }
