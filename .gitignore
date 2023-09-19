@@ -90,6 +90,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 #General Files
+.DS_Store
 */.DS_Store
 
 #Google Services
