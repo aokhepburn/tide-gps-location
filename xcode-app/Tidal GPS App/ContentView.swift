@@ -74,79 +74,98 @@ struct RequestLocationView: View{
 
 //Main view page with map and printed coordinate & tide information
 struct TrackingView: View {
+    //gps location
     @EnvironmentObject var locationManagerModel: LocationManagerModel
+    //date information
     @StateObject var dateTime = DateTimeManagerModel()
-    @StateObject private var firebaseQueryModel = FirebaseQueryModel()
+    //data for tidal heights and fetch request for data
+    @StateObject private var tidalHeightsQueryModel = TidalHeightsQueryModel()
+    //just making a quick var for ease of reference to coordinates
     var coordinate: CLLocationCoordinate2D? {
         locationManagerModel.lastSeenLocation?.coordinate
     }
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 0.5))
     
-    let annotations = [
-        City(name: "King's Point", coordinate: CLLocationCoordinate2D(latitude: 40.810299, longitude: -73.764900)),
-        City(name: "The Battery", coordinate: CLLocationCoordinate2D(latitude: 40.700556, longitude: -74.014167)),
-        City(name: "Sandy Hook", coordinate: CLLocationCoordinate2D(latitude: 40.4583315, longitude: -74.00166666)),
-        City(name: "Bergen Point West Reach", coordinate: CLLocationCoordinate2D(latitude: 40.6391, longitude: -74.146306))
-    ]
     
+    //main map view
     var body: some View {
         VStack {
-            Map(coordinateRegion: $region,
-                showsUserLocation: true,
-                userTrackingMode: .constant(.follow),
-                annotationItems: annotations) {
-                        MapMarker(coordinate: $0.coordinate)
-                    }
-                        .frame(width: 400, height: 300)
-                
-                PairView(
-                    leftText: "Latitude:",
-                    rightText: String(coordinate?.latitude ?? 0)
-                )
-                PairView(
-                    leftText: "Longitude:",
-                    rightText: String(coordinate?.longitude ?? 0)
-                )
-                PairView(
-                    leftText: "Date & Time (For Display:",
-                    rightText: String(dateTime.displayNow!))
-                .padding(10)
+            MapView()
+                .frame(maxWidth: .infinity, alignment: .leading)
             
+            PairView(
+                leftText: "Latitude:",
+                rightText: String(coordinate?.latitude ?? 0)
+            )
+            PairView(
+                leftText: "Longitude:",
+                rightText: String(coordinate?.longitude ?? 0)
+            )
+            PairView(
+                leftText: "Date & Time (For Display:",
+                rightText: String(dateTime.displayNow!))
+            .padding(10)
             
-            List(firebaseQueryModel.tidesForDisplay) {tide in
-                VStack(alignment: .leading) {
-                    Text(tide.t)
+            //            returning closest tidal prediction for height, needs to add next high/low tide and wether one is in ebb or flood or slack
+            List(tidalHeightsQueryModel.tidesForDisplay) {tide in
+                HStack(alignment: .center) {
+                    Text(tide.DateTime)
                         .font(.title)
                         .fontWeight(.bold)
-                    PairView(
-                        leftText: "height from Mean Lower Low Water",
-                        rightText: tide.v
-                    )
+                    Spacer()
+                    Text(String(tide.Prediction))
+                            .font(.title)
+                            .fontWeight(.bold)
+                    
+                    //                    PairView(
+                    //                        leftText: "height from Mean Lower Low Water",
+                    //                        rightText: Text((tide.Prediction as NSString))
+                    //                    )
                 }
             }
-                Button {
-                    Task {
-                        if Float(coordinate?.latitude ?? 0) < 40.6526 && Float(coordinate?.latitude ?? 0) > 40.5949 && Float(coordinate?.longitude ?? 0) > -74.2035 && Float(coordinate?.longitude ?? 0) < -74.1088 {
-                            firebaseQueryModel.harmonicStationString = "west-bergen"
-                            firebaseQueryModel.retrieveTidesForDisplay()
-                        } else if Float(coordinate?.latitude ?? 0) < 40.9607 && Float(coordinate?.latitude ?? 0) > 40.7544 && Float(coordinate?.longitude ?? 0) > -73.9092 && Float(coordinate?.longitude ?? 0) < -73.6116 {
-                            firebaseQueryModel.harmonicStationString = "kings-point"
-                            firebaseQueryModel.retrieveTidesForDisplay()
-                        } else if Float(coordinate?.latitude ?? 0) < 40.8511 && Float(coordinate?.latitude ?? 0) > 40.6009 && Float(coordinate?.longitude ?? 0) > -74.1088 && Float(coordinate?.longitude ?? 0) < -73.9092 {
-                            firebaseQueryModel.harmonicStationString = "the-battery"
-                            firebaseQueryModel.retrieveTidesForDisplay()
-                        }
-                        
+            Button {
+                //passing right query for fetch
+                Task {
+                    if Float(coordinate?.latitude ?? 0) < 40.66912 && Float(coordinate?.latitude ?? 0) > 40.587279 && Float(coordinate?.longitude ?? 0) > -74.10612 && Float(coordinate?.longitude ?? 0) < -73.98512 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTUSCGStation(8519050)LAT4060194LON-7405167"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.6526 && Float(coordinate?.latitude ?? 0) > 40.5949 && Float(coordinate?.longitude ?? 0) > -74.2035 && Float(coordinate?.longitude ?? 0) < -73.994623 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTBergenPointWestReach(8519483)LAT40634167LON-7413556"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.76357 && Float(coordinate?.latitude ?? 0) > 40.66912 && Float(coordinate?.longitude ?? 0) > -74.08729 && Float(coordinate?.longitude ?? 0) < -74.00076 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTTheBattery(8518750)LAT407LON-740025"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.715242 && Float(coordinate?.latitude ?? 0) > 40.698782 && Float(coordinate?.longitude ?? 0) > -74.00076 && Float(coordinate?.longitude ?? 0) < -73.97496 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTBrooklynBridge(8517847)LAT4070056LON-73985278"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.724971 && Float(coordinate?.latitude ?? 0) > 40.715242 && Float(coordinate?.longitude ?? 0) > -73.97496 && Float(coordinate?.longitude ?? 0) < -73.95743923 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTWilliamsburgBridge(8518699)LAT4070194LON-7396694"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.76799432232893 && Float(coordinate?.latitude ?? 0) > 40.724971 && Float(coordinate?.longitude ?? 0) > -73.96356351064199 && Float(coordinate?.longitude ?? 0) < -73.93889 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTQueensboroBridge(8518687)LAT40751389LON-7395138"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.78572 && Float(coordinate?.latitude ?? 0) > 40.767994322 && Float(coordinate?.longitude ?? 0) > -73.95206 && Float(coordinate?.longitude ?? 0) < -73.91717 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTHornsHook(8518668)LAT407683LON-7393472"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.80288 && Float(coordinate?.latitude ?? 0) > 40.78572 && Float(coordinate?.longitude ?? 0) > -73.94521 && Float(coordinate?.longitude ?? 0) < -73.91112 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTRandallsIsland(8518643)LAT408LON-7391861"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.827655 && Float(coordinate?.latitude ?? 0) > 40.78572 && Float(coordinate?.longitude ?? 0) > -73.91112 && Float(coordinate?.longitude ?? 0) < -73.80903 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTPortMorris(8518639)LAT40800278LON-739011"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
+                    } else if Float(coordinate?.latitude ?? 0) < 40.78572 && Float(coordinate?.latitude ?? 0) > 40.7457166 && Float(coordinate?.longitude ?? 0) > -73.8739028 && Float(coordinate?.longitude ?? 0) < -73.831424 {
+                        tidalHeightsQueryModel.harmonicStationString = "HEIGHTWorldsFairMarina(8517251)LAT4075194LON-7385"
+                        tidalHeightsQueryModel.retrieveTidesForDisplay()
                     }
-                } label: {
-                    Text("Fetch Tide")
                 }
+            }label: {
+                Text("Fetch Tide")
+            }
         }
     }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
