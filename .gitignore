@@ -90,6 +90,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 #General Files
+.DS_Store
 */.DS_Store
 
 #Google Services
@@ -98,3 +99,8 @@ iOSInjectionProject/
 ./xcode-app/*/*.plist
 */GoogleService-Info.plist
 */.plist
+
+#/Other Temporary
+./xcode-app/Tidal GPS App/HandleDataModel.swift
+./xcode-app/Tidal\ GPS\ App/HandleDataModel.swift
+*/HandleDataModel.swift
