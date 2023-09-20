@@ -43,10 +43,11 @@ struct MapView: View {
         Stations(name: "George Washington Bridge", kind: "Current Speed", coordinate:CLLocationCoordinate2D(latitude: 40.8496, longitude:-73.9498)),
         Stations(name: "Ambrose Channel", kind: "Current Speed", coordinate:CLLocationCoordinate2D(latitude: 40.5167, longitude:-73.9747)),
         Stations(name: "The Narrows", kind: "Current Speed", coordinate:CLLocationCoordinate2D(latitude: 40.6064, longitude:-74.0380)),
-        Stations(name: "HudsonRiverEntrance", kind: "Current Speed", coordinate:CLLocationCoordinate2D(latitude: 40.70760, longitude:-74.02530))
+        Stations(name: "Hudson River Entrance", kind: "Current Speed", coordinate:CLLocationCoordinate2D(latitude: 40.70760, longitude:-74.02530))
     ]
+    
     @State private var userTrackingMode: MapUserTrackingMode = .follow
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10))
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
     //    @State private var annotationView =
     
     //    @State private var selectedPlace: LocationManagerModel().currentPlacemark
@@ -64,6 +65,8 @@ struct MapView: View {
                             .resizable()
                             .frame(width:10.0, height: 10.0)
                         Text(annotationItem.name!)
+                            .font(.system(size: 10))
+                            .frame(width:50)
                     }
                 }
             }
