@@ -13,7 +13,7 @@ struct SpeedData: Codable, Identifiable{
     // Codable is used for decoding and encoding the JSON data we get from our API call. Identifiable is used to help us make a unique identifier for our Comments object so our app can keep track of it.
     let id = UUID()
     let DateTime: String
-    let Prediction: Float
+    let SpeedInKnots: Float
 }
 
 //this tides is returning as an array!!!!!! FirebaseQueryModel().tides will return an array!
@@ -28,7 +28,7 @@ class SpeedQueryModel: ObservableObject {
     
 //    var harmonicStationString: String = ""
     
-    func retrieveTidesForDisplay(observationStationString: String) {
+    func retrieveCurrentSpeedForDisplay(observationStationString: String) {
         guard let ref = ref else {
             return
         }
