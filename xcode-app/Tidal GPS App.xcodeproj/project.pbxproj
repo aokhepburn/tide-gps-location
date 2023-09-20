@@ -28,6 +28,8 @@
 		36E391C12ABAD5EA00730369 /* TidalHeightsQueryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E391C02ABAD5EA00730369 /* TidalHeightsQueryView.swift */; };
 		36E391C32ABADA3300730369 /* SpeedQueryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E391C22ABADA3300730369 /* SpeedQueryModel.swift */; };
 		36E391C52ABADF8C00730369 /* SpeedQueryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E391C42ABADF8C00730369 /* SpeedQueryView.swift */; };
+		36E391C72ABB579A00730369 /* FloodEbbSlackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E391C62ABB579A00730369 /* FloodEbbSlackViewModel.swift */; };
+		36E391C92ABB7D1300730369 /* NavigationViewSetUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E391C82ABB7D1300730369 /* NavigationViewSetUp.swift */; };
 		36EDD2892AA7B15F0075F209 /* Tidal_GPS_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */; };
 		36EDD28B2AA7B15F0075F209 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36EDD28A2AA7B15F0075F209 /* ContentView.swift */; };
 		36EDD28D2AA7B1600075F209 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36EDD28C2AA7B1600075F209 /* Assets.xcassets */; };
@@ -66,6 +68,8 @@
 		36E391C02ABAD5EA00730369 /* TidalHeightsQueryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidalHeightsQueryView.swift; sourceTree = "<group>"; };
 		36E391C22ABADA3300730369 /* SpeedQueryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedQueryModel.swift; sourceTree = "<group>"; };
 		36E391C42ABADF8C00730369 /* SpeedQueryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedQueryView.swift; sourceTree = "<group>"; };
+		36E391C62ABB579A00730369 /* FloodEbbSlackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloodEbbSlackViewModel.swift; sourceTree = "<group>"; };
+		36E391C82ABB7D1300730369 /* NavigationViewSetUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewSetUp.swift; sourceTree = "<group>"; };
 		36EDD2852AA7B15F0075F209 /* Tidal GPS App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tidal GPS App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36EDD2882AA7B15F0075F209 /* Tidal_GPS_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tidal_GPS_AppApp.swift; sourceTree = "<group>"; };
 		36EDD28A2AA7B15F0075F209 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				36E391C22ABADA3300730369 /* SpeedQueryModel.swift */,
 				36E391C42ABADF8C00730369 /* SpeedQueryView.swift */,
 				36E391BE2ABA0EDE00730369 /* HandleDataModel.swift */,
+				36E391C62ABB579A00730369 /* FloodEbbSlackViewModel.swift */,
+				36E391C82ABB7D1300730369 /* NavigationViewSetUp.swift */,
 			);
 			path = "Tidal GPS App";
 			sourceTree = "<group>";
@@ -334,7 +340,9 @@
 				36E391C52ABADF8C00730369 /* SpeedQueryView.swift in Sources */,
 				36E391C32ABADA3300730369 /* SpeedQueryModel.swift in Sources */,
 				36EDD28B2AA7B15F0075F209 /* ContentView.swift in Sources */,
+				36E391C92ABB7D1300730369 /* NavigationViewSetUp.swift in Sources */,
 				36E391BD2AB8BCBF00730369 /* MapKitView.swift in Sources */,
+				36E391C72ABB579A00730369 /* FloodEbbSlackViewModel.swift in Sources */,
 				366283E72AAA2733004ADB23 /* LocationManagerModel.swift in Sources */,
 				366283EE2AAA7637004ADB23 /* DateTimeManagerModel.swift in Sources */,
 				36E391C12ABAD5EA00730369 /* TidalHeightsQueryView.swift in Sources */,

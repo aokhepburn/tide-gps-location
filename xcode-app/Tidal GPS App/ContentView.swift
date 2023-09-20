@@ -93,60 +93,101 @@ struct TrackingView: View {
     var coordinate: CLLocationCoordinate2D? {
         locationManagerModel.lastSeenLocation?.coordinate
     }
+    @EnvironmentObject var speedQueryModel: SpeedQueryModel
+    @EnvironmentObject var tidalHeightsQueryModel: TidalHeightsQueryModel
+    var coordinateLatitude: CLLocationDegrees {locationManagerModel.lastSeenLocation?.coordinate.latitude ?? 0}
+    var coordinateLongitude: CLLocationDegrees {locationManagerModel.lastSeenLocation?.coordinate.longitude ?? 0}
+
     
     //💥💥💥💥💥 Add functionality to this boolean please
-    @State var isFlooding: Bool = true
     
-    @State var speedStationChoice: String = "SPEEDTheNarrows(n03020)LAT406064LON-740380"
+    private var stationChoices = ["SPEEDAmbroseChannel(NYH1903)LAT405167LON-739747",
+                                  "SPEEDBrooklynBridge(NYH1920)LAT407060LON-739977",
+                                  "SPEEDConstableHookApproach(NYH1914)LAT406507LON-740606",
+                                  "SPEEDCorlearsHook(NYH1921)LAT407095LON-739764",
+                                  "SPEEDDiamondReef(NYH1919)LAT406979LON-740213",
+                                  "SPEEDGeorgeWashingtonBridge(HUR0611)LAT408496LON-739498",
+                                  "SPEEDGowanusBay(NYH1917)LAT406625LON-740181",
+                                  "SPEEDGowanusFlats(n05010)LAT406721LON-740399",
+                                  "SPEEDHellGate(NYH1924)LAT407783LON-739383",
+                                  "SPEEDHudsonRiverEntrance(NYH1927)LAT4070760LON-7402530",
+                                  "SPEEDHudsonRiverPier92(NYH1928)LAT407707LON-740028",
+                                  "SPEEDNewtownCreek(NYH1922)LAT407347LON-739657",
+                                  "SPEEDRedHookChannel(NYH1918)LAT406723LON-740239",
+                                  "SPEEDRobbinsReefLight(NYH1915)LAT406552LON-740507",
+                                  "SPEEDTheNarrows(n03020)LAT406064LON-740380]",]
+    
+    @State var speedStationChoice = "SPEEDRobbinsReefLight(NYH1915)LAT406552LON-740507"
     
     
     //main map view
     var body: some View {
         VStack {
             MapView()
-                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxHeight: .infinity, alignment: .leading)
             
-            PairView(
-                leftText: "Latitude:",
-                rightText: String(coordinate?.latitude ?? 0)
-            )
-            PairView(
-                leftText: "Longitude:",
-                rightText: String(coordinate?.longitude ?? 0)
-            )
-            PairView(
-                leftText: "Date & Time (For Display:",
-                rightText: String(dateTimeManagerModel.displayNow!))
-            .padding(10)
-            
-            //💥💥💥💥💥 Add functionality to this boolean please
-            Text(isFlooding ? "Flood" : "Ebb")
-            TidalHeightView()
-                .frame(maxWidth: .infinity, alignment: .leading)
-            
-            //💥💥💥💥💥 Picker is not setting speedStationChoicePicked - decide what to do QUICKLY. Do not get bogged down use a default as a one example if necessary.
-            Picker("Select a station", selection: $speedStationChoice) {
-                    Text("TheNarrows").tag("SPEEDTheNarrows(n03020)LAT406064LON-740380")
-                    Text("Robbins Reef Light").tag("SPEEDRobbinsReefLight(NYH1915)LAT406552LON-740507")
-                    Text("Red Hook Channel").tag("SPEEDRedHookChannel(NYH1918)LAT406723LON-740239")
-                    Text("Newtown Creek").tag("SPEEDNewtownCreek(NYH1922)LAT407347LON-739657")
-                    Text("Pier 92").tag("SPEEDHudsonRiverPier92(NYH1928)LAT407707LON-740028")
-                    Text("Hell Gate").tag("SPEEDHellGate(NYH1924)LAT407783LON-739383")
-                    Text("Gowanus Flats").tag("SPEEDGowanusFlats(n05010)LAT406721LON-740399")
-                    Text("Gowanus Bay").tag("SPEEDGowanusBay(NYH1917)LAT406625LON-740181")
-                    Text("George Washington Bridge").tag("SPEEDGeorgeWashingtonBridge(HUR0611)LAT408496LON-739498")
-                    Text("Diamond Reef").tag("SPEEDDiamondReef(NYH1919)LAT406979LON-740213")
-                //currently commented out as pickers only allow 10 choices and I can eliminate a few of the others instead as being outside of scope
-//                        Text("Corlears Hook").tag("SPEEDCorlearsHook(NYH1921)LAT407095LON-739764")
-//                        Text("Constable Hook Approach").tag("SPEEDConstableHookApproach(NYH1914)LAT406507LON-740606")
-//                        Text("Brooklyn Bridge").tag("SPEEDBrooklynBridge(NYH1920)LAT407060LON-739977")
-//                        Text("Ambrose Channel").tag("SPEEDAmbroseChannel(NYH1903)LAT405167LON-739747")
-                  }
-                  .pickerStyle(.wheel)
-            
-            CurrentSpeedView(speedStationChoicePicked: speedStationChoice)
+            VStack{
+//                PairView(
+//                    leftText: "Latitude:",
+//                    rightText: String(coordinate?.latitude ?? 0)
+//                )
+//                PairView(
+//                    leftText: "Longitude:",
+//                    rightText: String(coordinate?.longitude ?? 0)
+//                )
+//                PairView(
+//                    leftText: "Date & Time (For Display:",
+//                    rightText: String(dateTimeManagerModel.displayNow!))
+//                .padding(10)
+//
+                //💥💥💥💥💥 Add functionality to this boolean please
+//                Text(isFlooding ? "Flood" : "Ebb")
+                TidalHeightView()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .task {await tidalHeightsQueryModel.retrieveTidesForDisplay(latitude: coordinateLatitude, longitude: coordinateLongitude)}
+                
+                //💥💥💥💥💥 Picker is not setting speedStationChoicePicked - decide what to do QUICKLY. Do not get bogged down use a default as a one example if necessary.
+                VStack{
+                    Picker("Speed Station Selection", selection: $speedStationChoice, content: {
+                    ForEach(stationChoices, id: \.self, content: { station in // <1>
+                        Text(station)
+                    })
+//                    .pickerStyle(.wheel)
+                })
+//                CurrentSpeedView()
+                    VStack{
+                        Text("Speed In Knots")
+                        List(speedQueryModel.currentSpeed) {speed in
+                            HStack(alignment: .center) {
+                                Text(speed.DateTime)
+                                Spacer()
+                                Text(String(speed.SpeedInKnots))
+                                    .fontWeight(.bold)
+
+                            }
+                        }
+                        .frame(maxHeight: 50)
+                        .refreshable {
+                            speedQueryModel.retrieveCurrentSpeedForDisplay(observationStationString: speedStationChoice)
+                            print(speedStationChoice)
+                        }
+                    }
+                Button {
+                        //                passing right query for fetch
+                        Task {
+                            speedQueryModel.retrieveCurrentSpeedForDisplay(observationStationString: speedStationChoice)
+                            print(speedStationChoice)
+                        }
+                    }label: {
+                        Text("Current Speed")
+                    }
+                    
+                }
+//                FloodEbbSlackView()
+            }
         }
-    }
+        }
+                       
     
     
     

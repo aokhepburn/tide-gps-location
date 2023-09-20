@@ -15,9 +15,13 @@ struct Stations: Identifiable{
     let name: String?
     let kind: String?
     let coordinate: CLLocationCoordinate2D
+    //station.speed
 }
 
 struct MapView: View {
+//    @EnvironmentObject var speedQueryModel: SpeedQueryModel
+        //?????write a forEach statement that calls for each station below? enh something. another fetch method that calls on each of the speed stations and prints to the new array Stations
+    
     @State private var stationAnnotations: [Stations] = [
 //        Stations(name: "Randall's Island", kind: "Height Of Water Level", coordinate: CLLocationCoordinate2D(latitude: 40.8, longitude: -73.91861)),
 //        Stations(name: "World's Fair Arena", kind: "Height Of Water Level", coordinate:CLLocationCoordinate2D(latitude: 40.75194, longitude: -73.85)),
