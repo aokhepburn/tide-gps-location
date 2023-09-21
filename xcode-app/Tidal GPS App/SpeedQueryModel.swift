@@ -29,6 +29,7 @@ class SpeedQueryModel: ObservableObject {
 //    var harmonicStationString: String = ""
     
     func retrieveCurrentSpeedForDisplay(observationStationString: String) {
+        self.currentSpeed.removeAll()
         guard let ref = ref else {
             return
         }

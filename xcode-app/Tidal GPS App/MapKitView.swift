@@ -51,10 +51,7 @@ struct MapView: View {
     ]
     
     @State private var userTrackingMode: MapUserTrackingMode = .follow
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1))
-    //    @State private var annotationView =
-    
-    //    @State private var selectedPlace: LocationManagerModel().currentPlacemark
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
     
     var body: some View {
         Map(

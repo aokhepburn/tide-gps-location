@@ -97,7 +97,8 @@ struct TrackingView: View {
     @EnvironmentObject var tidalHeightsQueryModel: TidalHeightsQueryModel
     var coordinateLatitude: CLLocationDegrees {locationManagerModel.lastSeenLocation?.coordinate.latitude ?? 0}
     var coordinateLongitude: CLLocationDegrees {locationManagerModel.lastSeenLocation?.coordinate.longitude ?? 0}
-
+    @State var showSheetView = false
+    
     
     //💥💥💥💥💥 Add functionality to this boolean please
     
@@ -115,7 +116,7 @@ struct TrackingView: View {
                                   "SPEEDNewtownCreek(NYH1922)LAT407347LON-739657",
                                   "SPEEDRedHookChannel(NYH1918)LAT406723LON-740239",
                                   "SPEEDRobbinsReefLight(NYH1915)LAT406552LON-740507",
-                                  "SPEEDTheNarrows(n03020)LAT406064LON-740380]",]
+                                  "SPEEDTheNarrows(n03020)LAT406064LON-740380]"]
     
     @State var speedStationChoice = "SPEEDRobbinsReefLight(NYH1915)LAT406552LON-740507"
     
@@ -125,45 +126,37 @@ struct TrackingView: View {
         VStack {
             MapView()
                 .frame(maxHeight: .infinity, alignment: .leading)
-            
+                .edgesIgnoringSafeArea(.top)
+
             VStack{
-//                PairView(
-//                    leftText: "Latitude:",
-//                    rightText: String(coordinate?.latitude ?? 0)
-//                )
-//                PairView(
-//                    leftText: "Longitude:",
-//                    rightText: String(coordinate?.longitude ?? 0)
-//                )
-//                PairView(
-//                    leftText: "Date & Time (For Display:",
-//                    rightText: String(dateTimeManagerModel.displayNow!))
-//                .padding(10)
-//
                 //💥💥💥💥💥 Add functionality to this boolean please
-//                Text(isFlooding ? "Flood" : "Ebb")
+                //                Text(isFlooding ? "Flood" : "Ebb")
                 TidalHeightView()
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .task {await tidalHeightsQueryModel.retrieveTidesForDisplay(latitude: coordinateLatitude, longitude: coordinateLongitude)}
+                    .task {tidalHeightsQueryModel.retrieveTidesForDisplay(latitude: coordinateLatitude, longitude: coordinateLongitude)
+                    }
                 
-                //💥💥💥💥💥 Picker is not setting speedStationChoicePicked - decide what to do QUICKLY. Do not get bogged down use a default as a one example if necessary.
                 VStack{
+//                    NavigationLink(destination: EldridgeView()) {
+//                        Text("Hello, World!")
+//                    }
+//                    .navigationTitle("Navigation")
+                    
                     Picker("Speed Station Selection", selection: $speedStationChoice, content: {
-                    ForEach(stationChoices, id: \.self, content: { station in // <1>
-                        Text(station)
+                        ForEach(stationChoices, id: \.self, content: { station in // <1>
+                            Text(station)
+                        })
                     })
-//                    .pickerStyle(.wheel)
-                })
-//                CurrentSpeedView()
+                    //                CurrentSpeedView()
                     VStack{
-                        Text("Speed In Knots")
                         List(speedQueryModel.currentSpeed) {speed in
                             HStack(alignment: .center) {
                                 Text(speed.DateTime)
                                 Spacer()
                                 Text(String(speed.SpeedInKnots))
                                     .fontWeight(.bold)
-
+                                Text("speed in knots")
+                                
                             }
                         }
                         .frame(maxHeight: 50)
@@ -172,24 +165,30 @@ struct TrackingView: View {
                             print(speedStationChoice)
                         }
                     }
-                Button {
-                        //                passing right query for fetch
+                    Button {
                         Task {
                             speedQueryModel.retrieveCurrentSpeedForDisplay(observationStationString: speedStationChoice)
                             print(speedStationChoice)
                         }
                     }label: {
-                        Text("Current Speed")
+                        Text("Fetch Current Speed")
                     }
                     
                 }
-//                FloodEbbSlackView()
+                //                FloodEbbSlackView()
             }
         }
-        }
+    }
+}
                        
     
     
+    struct EldridgeView: View{
+        var body: some View{
+            VStack{
+                Text("will this work")
+            }
+    }
     
     
     struct ContentView_Previews: PreviewProvider {

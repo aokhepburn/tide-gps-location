@@ -20,8 +20,8 @@ struct TidalData: Codable, Identifiable{
 
 class TidalHeightsQueryModel: ObservableObject {
     @Published var tidesForDisplay: [TidalData] = []
-    @Published var isFlooding: Bool = false
-    @Published var isEbbing: Bool = true
+//    @State var isFlooding: Bool = true
+//    @State var isEbbing: Bool = false
 
     var ref: DatabaseReference? = Database.database().reference()
     
@@ -31,6 +31,8 @@ class TidalHeightsQueryModel: ObservableObject {
 //    var harmonicStationString: String = ""
     
     func retrieveTidesForDisplay(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        self.tidesForDisplay.removeAll()
+        //ferry route coordinates 40.70041870860205, -74.02376216255963
         var harmonicStationString:String = ""
         if Float(latitude) < 40.66912 && Float(latitude) > 40.587279 && Float(longitude) > -74.10612 && Float(longitude) < -73.98512 {
                 harmonicStationString = "HEIGHTUSCGStation(8519050)LAT4060194LON-7405167"
@@ -71,17 +73,33 @@ class TidalHeightsQueryModel: ObservableObject {
                 do {
                     let tideData = try JSONSerialization.data(withJSONObject: json)
                     let tide = try self.decoder.decode(TidalData.self, from: tideData)
+                    print(type(of: tide))
                     self.tidesForDisplay.append(tide)
-                    print(harmonicStationString)
-                    print(self.tidesForDisplay)
-//                    setFloodSlackEbb()
+                    
+                    //print(harmonicStationString)
+                    //print(self.tidesForDisplay)
+                    //setFloodSlackEbb()
+//                    if self.tidesForDisplay[0].Prediction < 0 {isFlooding = true
+//                                isEbbing = false
+//                            } else {isFlooding = false
+//                                isEbbing = true}
                 } catch {
                     print("an error occurred", error)
                 }
                 
+                
             }
+
     }
-    
+    func setFloodSlackEbb() -> Bool{
+        var isFlooding: Bool
+        let count = self.tidesForDisplay.count
+        if self.tidesForDisplay[0].Prediction < self.tidesForDisplay[count-1].Prediction {isFlooding = true
+                                        } else {isFlooding = false}
+        print("test")
+        print(self.tidesForDisplay.count)
+        return isFlooding
+    }
     func stopListening() {
         ref?.removeAllObservers()
     }

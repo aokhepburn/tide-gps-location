@@ -15,17 +15,14 @@ struct TidalHeightView: View {
     var coordinateLongitude: CLLocationDegrees {locationManagerModel.lastSeenLocation?.coordinate.longitude ?? 0}
     @EnvironmentObject private var tidalHeightsQueryModel: TidalHeightsQueryModel
     @EnvironmentObject var dateTimeManagerModel: DateTimeManagerModel
-    
-    @State var tidalArray: Array<Any> = []
-    
-    //just making a quick var for ease of reference to coordinates
-
 
     var body: some View {
-        HStack{
+        VStack{
             Button {
                 //                passing right query for fetch
-                Task {tidalHeightsQueryModel.retrieveTidesForDisplay(latitude: coordinateLatitude, longitude: coordinateLongitude)}
+                Task {tidalHeightsQueryModel.retrieveTidesForDisplay(latitude: coordinateLatitude, longitude: coordinateLongitude)
+                }
+                
             }label: {
                 Text("Refresh Tide")
             }
@@ -35,6 +32,9 @@ struct TidalHeightView: View {
                     Spacer()
                     Text(String(tide.Prediction))
                         .fontWeight(.bold)
+                        .frame(maxWidth: 150)
+                    Spacer()
+                    Text("height from low water")
 
                 }
             }
@@ -43,7 +43,7 @@ struct TidalHeightView: View {
 //
 //            }
             .frame(maxHeight: 50)
-            Text(tidalHeightsQueryModel.isFlooding ? "Flood" : "Ebb")
+//            Text(flood ? "Flood" : "Ebb")
         }
     }
 }
