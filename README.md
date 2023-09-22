@@ -10,12 +10,4 @@
 
 ## Description
 
-An app to get up to date tidal information in New York Harbor based off of a phone's GPS data. Given the complexity of New York's rivers and it's many currents this app attempts to pin point a user's location and give accurate information for the current tidal situation and surface currents that may affect navigation.
-
-## Languages and SDKs
-
-- SwiftUI
-  - CoreLocation
-  - Firebase Realtime DB
-  - SwiftCharts
-  - MapKit
+An app to get up to date tidal information in New York Harbor based off of a phone's GPS data. Given the complexity of New York's rivers and its many currents this app attempts to pin point a user's location and give accurate information for the current tidal situation and surface currents that may affect navigation.
