@@ -20,7 +20,7 @@ struct TidalData: Codable, Identifiable{
 
 class TidalHeightsQueryModel: ObservableObject {
     @Published var tidesForDisplay: [TidalData] = []
-//    @State var isFlooding: Bool = true
+    var isFlooding: Bool = false
 //    @State var isEbbing: Bool = false
 
     var ref: DatabaseReference? = Database.database().reference()
@@ -28,20 +28,17 @@ class TidalHeightsQueryModel: ObservableObject {
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
     
-//    var harmonicStationString: String = ""
+    var harmonicStationString: String = ""
     
     func retrieveTidesForDisplay(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         self.tidesForDisplay.removeAll()
         //ferry route coordinates 40.70041870860205, -74.02376216255963
-        var harmonicStationString:String = ""
         if Float(latitude) < 40.66912 && Float(latitude) > 40.587279 && Float(longitude) > -74.10612 && Float(longitude) < -73.98512 {
                 harmonicStationString = "HEIGHTUSCGStation(8519050)LAT4060194LON-7405167"
             } else if Float(latitude) < 40.6526 && Float(latitude) > 40.5949 && Float(longitude) > -74.2035 && Float(longitude) < -73.994623 {
                 harmonicStationString = "HEIGHTBergenPointWestReach(8519483)LAT40634167LON-7413556"
-            } else if Float(latitude) < 40.76357 && Float(latitude) > 40.66912 && Float(longitude) > -74.08729 && Float(longitude) < -74.00076 {
-                harmonicStationString = "HEIGHTTheBattery(8518750)LAT407LON-740025"
-            } else if Float(latitude) < 40.715242 && Float(latitude) > 40.698782 && Float(longitude) > -74.00076 && Float(longitude) < -73.97496 {
-                harmonicStationString = "HEIGHTBrooklynBridge(8517847)LAT4070056LON-73985278"
+            } else if Float(latitude) < 40.76357 && Float(latitude) > 40.66912 && Float(longitude) > -74.08729 && Float(longitude) < -74.00076 {harmonicStationString = "HEIGHTTheBattery(8518750)LAT407LON-740025"
+            } else if Float(latitude) < 40.715242 && Float(latitude) > 40.698782 && Float(longitude) > -74.00076 && Float(longitude) < -73.97496 {harmonicStationString = "HEIGHTBrooklynBridge(8517847)LAT4070056LON-73985278"
             } else if Float(latitude) < 40.724971 && Float(latitude) > 40.715242 && Float(longitude) > -73.97496 && Float(longitude) < -73.95743923 {
                 harmonicStationString = "HEIGHTWilliamsburgBridge(8518699)LAT4070194LON-7396694"
             } else if Float(latitude) < 40.76799432232893 && Float(latitude) > 40.724971 && Float(longitude) > -73.96356351064199 && Float(longitude) < -73.93889 {harmonicStationString = "HEIGHTQueensboroBridge(8518687)LAT40751389LON-7395138"
@@ -73,9 +70,9 @@ class TidalHeightsQueryModel: ObservableObject {
                 do {
                     let tideData = try JSONSerialization.data(withJSONObject: json)
                     let tide = try self.decoder.decode(TidalData.self, from: tideData)
-                    print(type(of: tide))
+                    //print(type(of: tide))
                     self.tidesForDisplay.append(tide)
-                    
+                    print("db thing")
                     //print(harmonicStationString)
                     //print(self.tidesForDisplay)
                     //setFloodSlackEbb()
@@ -86,19 +83,25 @@ class TidalHeightsQueryModel: ObservableObject {
                 } catch {
                     print("an error occurred", error)
                 }
-                
+//                print(self)
                 
             }
 
     }
-    func setFloodSlackEbb() -> Bool{
-        var isFlooding: Bool
+    func setFloodSlackEbb()-> String{
         let count = self.tidesForDisplay.count
-        if self.tidesForDisplay[0].Prediction < self.tidesForDisplay[count-1].Prediction {isFlooding = true
-                                        } else {isFlooding = false}
-        print("test")
+        if(count > 0){
+            print("test")
+//            self.isFlooding = true
+            if self.tidesForDisplay[0].Prediction < self.tidesForDisplay[count-1].Prediction {self.isFlooding = true
+            } else {self.isFlooding = false}
+        }
+        //
+        print(self.isFlooding)
         print(self.tidesForDisplay.count)
-        return isFlooding
+        if self.isFlooding == true {
+            return "Flood"
+        } else {return "Ebb"}
     }
     func stopListening() {
         ref?.removeAllObservers()
