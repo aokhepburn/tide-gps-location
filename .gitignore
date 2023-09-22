@@ -99,3 +99,8 @@ iOSInjectionProject/
 ./xcode-app/*/*.plist
 */GoogleService-Info.plist
 */.plist
+
+#/Other Temporary
+xcode-app/Tidal GPS App/HandleDataModel.swift
+xcode-app/Tidal\ GPS\ App/HandleDataModel.swift
+*/HandleDataModel.swift

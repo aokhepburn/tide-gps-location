@@ -24,13 +24,23 @@ struct PairView: View {
 }
 
 //ContentView is doing heavy lifting of checking permissions, first step.
+//To always get RequestLocationView reorganise so that is higher in these switch cases
+
 struct ContentView: View {
     @StateObject var locationManagerModel = LocationManagerModel()
+    @StateObject var tidalHeightsQueryModel = TidalHeightsQueryModel()
+    @StateObject var dateTimeManagerModel = DateTimeManagerModel()
+    @StateObject var speedQueryModel = SpeedQueryModel()
+    
     var body: some View {
+//        RequestLocationView()
         switch locationManagerModel.authorizationStatus{
         case .authorizedWhenInUse, .authorizedAlways:
             TrackingView()
                 .environmentObject(locationManagerModel)
+                .environmentObject(tidalHeightsQueryModel)
+                .environmentObject(dateTimeManagerModel)
+                .environmentObject(speedQueryModel)
         case .denied:
             PairView(
                 leftText: "ERROR", rightText: "User denied permission to location data.")
@@ -50,6 +60,13 @@ struct RequestLocationView: View{
     
     var body: some View{
         VStack{
+                Text("Welcome to")
+                    .foregroundColor(.pink)
+                Text("TideNY")
+                    .fontWeight(.bold)
+                    .fontWidth(.expanded)
+                    .foregroundColor(.pink)
+                    .padding(5)
             //systemImage is from SF symbols catalogue
             Image(systemName: "figure.sailing")
                 .resizable()
@@ -65,8 +82,9 @@ struct RequestLocationView: View{
             .background(Color.pink)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             Text("Get started by allowing us permission to track your GPS location.")
-                .foregroundColor(.accentColor)
+                .foregroundColor(.cyan)
                 .font(.caption)
+                .padding(10)
         }
         
     }
@@ -74,79 +92,46 @@ struct RequestLocationView: View{
 
 //Main view page with map and printed coordinate & tide information
 struct TrackingView: View {
+    //gps location
     @EnvironmentObject var locationManagerModel: LocationManagerModel
-    @StateObject var dateTime = DateTimeManagerModel()
-    @StateObject private var firebaseQueryModel = FirebaseQueryModel()
+    //date information
+    @EnvironmentObject var dateTimeManagerModel: DateTimeManagerModel
+    //just making a quick var for ease of reference to coordinates
     var coordinate: CLLocationCoordinate2D? {
         locationManagerModel.lastSeenLocation?.coordinate
     }
-    @State var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 0.5))
+    @EnvironmentObject var tidalHeightsQueryModel: TidalHeightsQueryModel
+    var coordinateLatitude: CLLocationDegrees {locationManagerModel.lastSeenLocation?.coordinate.latitude ?? 0}
+    var coordinateLongitude: CLLocationDegrees {locationManagerModel.lastSeenLocation?.coordinate.longitude ?? 0}
     
-    let annotations = [
-        City(name: "King's Point", coordinate: CLLocationCoordinate2D(latitude: 40.810299, longitude: -73.764900)),
-        City(name: "The Battery", coordinate: CLLocationCoordinate2D(latitude: 40.700556, longitude: -74.014167)),
-        City(name: "Sandy Hook", coordinate: CLLocationCoordinate2D(latitude: 40.4583315, longitude: -74.00166666)),
-        City(name: "Bergen Point West Reach", coordinate: CLLocationCoordinate2D(latitude: 40.6391, longitude: -74.146306))
-    ]
+    @EnvironmentObject var speedQueryModel: SpeedQueryModel
     
+    //💥💥💥💥💥 Add functionality to this boolean please
+    
+    //main map view
     var body: some View {
         VStack {
-            Map(coordinateRegion: $region,
-                showsUserLocation: true,
-                userTrackingMode: .constant(.follow),
-                annotationItems: annotations) {
-                        MapMarker(coordinate: $0.coordinate)
-                    }
-                        .frame(width: 400, height: 300)
-                
-                PairView(
-                    leftText: "Latitude:",
-                    rightText: String(coordinate?.latitude ?? 0)
-                )
-                PairView(
-                    leftText: "Longitude:",
-                    rightText: String(coordinate?.longitude ?? 0)
-                )
-                PairView(
-                    leftText: "Date & Time (For Display:",
-                    rightText: String(dateTime.displayNow!))
-                .padding(10)
+            MapView()
+                .frame(maxHeight: .infinity, alignment: .leading)
+                .edgesIgnoringSafeArea(.top)
             
+            //💥💥💥💥💥 Add functionality to this boolean please
+            //                Text(isFlooding ? "Flood" : "Ebb")
+            TidalHeightView()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .task {tidalHeightsQueryModel.retrieveTidesForDisplay(latitude: coordinateLatitude, longitude: coordinateLongitude)
+                }
+            SpeedQueryView()
+                .task{speedQueryModel.retrieveCurrentSpeedForDisplay(observationStationString: "SPEEDHudsonRiverEntrance(NYH1927)LAT4070760LON-7402530")}
             
-            List(firebaseQueryModel.tidesForDisplay) {tide in
-                VStack(alignment: .leading) {
-                    Text(tide.t)
-                        .font(.title)
-                        .fontWeight(.bold)
-                    PairView(
-                        leftText: "height from Mean Lower Low Water",
-                        rightText: tide.v
-                    )
-                }
-            }
-                Button {
-                    Task {
-                        if Float(coordinate?.latitude ?? 0) < 40.6526 && Float(coordinate?.latitude ?? 0) > 40.5949 && Float(coordinate?.longitude ?? 0) > -74.2035 && Float(coordinate?.longitude ?? 0) < -74.1088 {
-                            firebaseQueryModel.harmonicStationString = "west-bergen"
-                            firebaseQueryModel.retrieveTidesForDisplay()
-                        } else if Float(coordinate?.latitude ?? 0) < 40.9607 && Float(coordinate?.latitude ?? 0) > 40.7544 && Float(coordinate?.longitude ?? 0) > -73.9092 && Float(coordinate?.longitude ?? 0) < -73.6116 {
-                            firebaseQueryModel.harmonicStationString = "kings-point"
-                            firebaseQueryModel.retrieveTidesForDisplay()
-                        } else if Float(coordinate?.latitude ?? 0) < 40.8511 && Float(coordinate?.latitude ?? 0) > 40.6009 && Float(coordinate?.longitude ?? 0) > -74.1088 && Float(coordinate?.longitude ?? 0) < -73.9092 {
-                            firebaseQueryModel.harmonicStationString = "the-battery"
-                            firebaseQueryModel.retrieveTidesForDisplay()
-                        }
-                        
-                    }
-                } label: {
-                    Text("Fetch Tide")
-                }
+        }
         }
     }
-}
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
-}
+
