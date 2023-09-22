@@ -51,7 +51,7 @@ struct MapView: View {
     ]
     
     @State private var userTrackingMode: MapUserTrackingMode = .follow
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25))
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 40.70565231462143, longitude: -74.00502341810812), span: MKCoordinateSpan(latitudeDelta: 0.20, longitudeDelta: 0.20))
     
     var body: some View {
         Map(
@@ -62,9 +62,9 @@ struct MapView: View {
             annotationItems: stationAnnotations) {annotationItem in MapAnnotation(coordinate: annotationItem.coordinate){
                 VStack{
                     Group{
-                        Image(systemName: "map.circle.fill")
+                        Image(systemName: "mappin")
                             .resizable()
-                            .frame(width:10.0, height: 10.0)
+                            .frame(width:20.0, height: 20.0)
                         Text(annotationItem.name!)
                             .font(.system(size: 10))
                             .frame(width:50)
