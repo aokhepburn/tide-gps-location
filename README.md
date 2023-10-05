@@ -18,11 +18,11 @@ Historically there is fantastic observed data that has been working for hundreds
 
 Utilizing NOAA's <a href="https://tidesandcurrents.noaa.gov/">current predictions</a> the user's GPS location is correlated with the tidal prediction station that is relevant for the user. This is information that is updated automatically as the user's GPS location changes.
 
-<img align="center" src="/demo-assets/gps-onchange-demo.gif"/>
+<div align="center"><img src="/demo-assets/gps-onchange-demo.gif"/></div>
 
 User's can also access current speed in knots from the various check-ins around the harbor. Due to the complexity of these speeds, and how the currents interact with each other I have decided to allow this information to be controlled by the user.
 
-<img align="center" src="/demo-assets/speed-demo.gif"/>
+<div align="center"><img src="/demo-assets/speed-demo.gif"/></div>
 
 ## Future Features
 
