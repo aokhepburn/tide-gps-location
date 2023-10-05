@@ -29,4 +29,4 @@ User's can also access current speed in knots from the various check-ins around 
 - Adding functionality to the map annotations to allow user's to see the current speed data as they click on the pin.
 - A view for looking at the traditional current maps which show the different speeds all over the harbor based on the hour from high or low tide.
 - Ability to move the timeline forward, and interactively drop a pin to plan for the future.
-- Integrating OpenSeaMaps to replace the basic AppleMaps I am currently using to which has more relevant maritime data.
+- Integrating OpenSeaMaps, which has more relevant maritime data, to replace the basic AppleMaps the app currently utilizes.
